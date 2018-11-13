@@ -6,7 +6,7 @@ import java.util.Stack;
 public class ex3 implements SimpleStack{
     Stack stack = new Stack();
     int taille = 0;
-
+    final int MAX_SIZE = 100;
     public boolean isEmpty(){
         return this.stack.empty();
     }
@@ -15,8 +15,10 @@ public class ex3 implements SimpleStack{
         return this.taille;
     }
     public void push(Item item){
-        this.stack.push(item);
-        this.taille++;
+        if(this.taille<MAX_SIZE){
+            this.stack.push(item);
+            this.taille++;
+        }
     }
 
     public Item peek() throws EmptyStackException{

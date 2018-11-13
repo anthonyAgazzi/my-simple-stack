@@ -30,8 +30,13 @@ public class ex3Test {
 
     @Test
     public void getSize() {
-        for(int i=0; i<10; i++){
-            assertEquals(i,b.getSize());
+        for(int i=0; i<200; i++){
+            if(i<100){
+                assertEquals(i,b.getSize());
+            }
+            else{
+                assertEquals(100,b.getSize());
+            }
             b.push(a);
         }
     }
