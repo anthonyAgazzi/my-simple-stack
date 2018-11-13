@@ -10,6 +10,7 @@ public class ex3 implements SimpleStack{
     public boolean isEmpty(){
         return this.stack.empty();
     }
+
     public int getSize(){
         return this.taille;
     }

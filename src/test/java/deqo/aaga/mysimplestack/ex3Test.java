@@ -15,6 +15,7 @@ public class ex3Test {
     ex3 b;
     @Rule
     public ExpectedException execptionable = ExpectedException.none();
+
     @Before
     public void setUp(){
         a = new Item(4,5);
@@ -45,23 +46,23 @@ public class ex3Test {
 
     @Test
     public void peek() {
-        execptionable.expect(EmptyStackException.class);
-        b.peek();
         b.push(a);
         assertEquals(a,b.peek());
+        b.pop();
+        execptionable.expect(EmptyStackException.class);
+        b.peek();
     }
 
     @Test
     public void pop() {
-        execptionable.expect(EmptyStackException.class);
-        b.pop();
         for(int i=0; i<10; i++){
             b.push(a);
         }
         for(int i=0; i<10; i++){
             assertEquals(10-i,b.getSize());
             assertEquals(a,b.pop());
-
         }
+        execptionable.expect(EmptyStackException.class);
+        b.pop();
     }
 }
